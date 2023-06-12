@@ -1,11 +1,12 @@
 package br.com.theodoro.djikstra_puc_lucia
 
 import com.google.firebase.firestore.FirebaseFirestore
+import br.com.theodoro.djikstra_puc_lucia.obterMenorCaminho
 
 
-fun baixarMatrizFirebase(onMatrizDownloaded: (Array<IntArray>) -> Unit) {
+fun baixarMatrizFirebase() {
     val db = FirebaseFirestore.getInstance()
-    val collectionRef = db.collection("vertices")
+    val collectionRef = db.collection("predios")
 
     collectionRef.get()
         .addOnSuccessListener { querySnapshot ->
@@ -16,11 +17,11 @@ fun baixarMatrizFirebase(onMatrizDownloaded: (Array<IntArray>) -> Unit) {
                 val caminhos = document.get("caminhos") as List<Int>
                 val tempo = document.get("tempo") as List<Int>
 
-                val vertice = VerticeClass(indice!!, caminhos, tempo)
-                vertices.add(vertice)
+                val predios = VerticeClass(indice!!, caminhos, tempo)
+                vertices.add(predios)
             }
 
-            val adjacencyMatrix = Array(vertices.size) { IntArray(vertices.size) }
+            var adjacencyMatrix = Array(vertices.size) { IntArray(vertices.size) }
 
             for (vertice in vertices) {
                 for (i in vertice.caminhos.indices) {
@@ -30,7 +31,22 @@ fun baixarMatrizFirebase(onMatrizDownloaded: (Array<IntArray>) -> Unit) {
                 }
             }
 
-            onMatrizDownloaded(adjacencyMatrix)
+            for (i in adjacencyMatrix.indices) {
+                for (j in adjacencyMatrix[i].indices) {
+                    print(adjacencyMatrix[i][j].toString())
+                    print(" ")
+                }
+                println()
+            }
+            //Chamar isso na principal
+            //Origem destino como input\
+            // matriz visivel no main
+            val (caminho, distancia) = obterMenorCaminho(adjacencyMatrix, 0, 35)
+            println("Caminho completo: ${caminho.joinToString(" -> ")}")
+            println("Distância do menor caminho: $distancia")
+
+
+
         }
         .addOnFailureListener { e ->
             println("Erro ao obter documentos da coleção 'vertices': $e")

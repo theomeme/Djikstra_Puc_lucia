@@ -1,6 +1,8 @@
 package br.com.theodoro.djikstra_puc_lucia
+data class ResultadoMenorCaminho(val caminho: List<Int>, val distancia: Int)
 
-fun obterMenorCaminho(grafo: Array<IntArray>, origem: Int, destino: Int): List<Int> {
+
+fun obterMenorCaminho(grafo: Array<IntArray>, origem: Int, destino: Int): ResultadoMenorCaminho {
     val numVertices = grafo.size
 
     // Inicialização das estruturas de dados do vertice
@@ -23,15 +25,14 @@ fun obterMenorCaminho(grafo: Array<IntArray>, origem: Int, destino: Int): List<I
         }
     }
 
-    // Construção do caminho mínimo
     val menorCaminho = mutableListOf<Int>()
     var atual = destino
-    while (atual != -1) {
+    do {
         menorCaminho.add(0, atual)
         atual = caminho[atual]
-    }
+    } while (atual != -1)
 
-    return menorCaminho
+    return ResultadoMenorCaminho(menorCaminho, distancias[destino])
 }
 
 fun encontrarVerticeComMenorDistancia(distancias: IntArray, visitados: BooleanArray): Int {
