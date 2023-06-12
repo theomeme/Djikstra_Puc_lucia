@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">Djikstra_Puc_lucia</string>
+    <string name="call_to_action_label">Escolha o seu destino</string>
+    <string name="route">Calcular trajeto</string>
+    <string-array name="predios_pucc">
+        <item>Selecione o prédio</item>
+        <item>Auditório D. Gilberto</item>
+        <item>Bancos</item>
+        <item>H-15</item>
+        <item>CT/BA</item>
+        <item>Praça de Alimentação e Serviços - 1</item>
+        <item>Biblioteca Unidade - 1</item>
+        <item>Prédio Reitoria</item>
+        <item>Central de Atendimento ao Aluno (CAA)</item>
+        <item>H-9</item>
+        <item>Predio Adm. - 1 ELC</item>
+        <item>H-7</item>
+        <item>H-5</item>
+        <item>H-1</item>
+        <item>H-3</item>
+        <item>H-0</item>
+        <item>Capela</item>
+        <item>H-10 (Prédio em Manutenção)</item>
+        <item>H-12</item>
+        <item>H-14</item>
+        <item>CT/C1</item>
+        <item>CT/C2</item>
+        <item>B2</item>
+        <item>B1</item>
+        <item>H-8</item>
+        <item>H-6</item>
+        <item>Predio Adm. - 2 ECON</item>
+        <item>H-4</item>
+        <item>H-2</item>
+        <item>Biblioteca Unidade - 2 Bloco B</item>
+        <item>Bloco C</item>
+        <item>Bloco A</item>
+        <item>Bloco D</item>
+        <item>Bloco G</item>
+        <item>Complexo Esportivo - Bloco H</item>
+        <item>Prédio Adm. - HJS - Bloco E</item>
+        <item>Quadras Cobertas - Bloco F</item>
+    </string-array>
 </resources>
