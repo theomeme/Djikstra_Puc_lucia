@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import br.com.theodoro.djikstra_puc_lucia.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -16,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     var from = -1;
     var to = -1;
 
-    var adjacencyMatrix = Array(0) { IntArray(0) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -68,8 +68,27 @@ class MainActivity : AppCompatActivity() {
                 // Nenhum item selecionado
             }
         }
-        setContentView(R.layout.activity_main)
 
-        baixarMatrizFirebase()
+        binding.btnCalcRoute.setOnClickListener{ view ->
+            if (from != -1 && to != -1) {
+                val graph = Graph();
+                graph.baixarMatrizFirebase(from, to)
+                    .addOnSuccessListener { result ->
+                        val textoCaminho = result[0] as String
+                        val distancia = result[1] as Int
+
+                        binding.tvRouteResultLabel.text = "Melhor rota encontrada"
+                        binding.tvRouteResult.text = textoCaminho
+                        binding.tvDistResult.text = "Levará ${distancia.toString()} minutos"
+                    }
+                    .addOnFailureListener { e ->
+                        println("Erro ao obter documentos da coleção 'predios': $e")
+                    }
+            } else {
+                Snackbar.make(view, "Por favor selecione o predio", Snackbar.LENGTH_SHORT).show()
+            }
+
+        }
+
     }
 }
