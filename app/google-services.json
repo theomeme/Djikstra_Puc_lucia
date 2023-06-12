@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1005238569095",
+    "project_id": "dijkstra-pucc",
+    "storage_bucket": "dijkstra-pucc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005238569095:android:2a086f4c54bbcecff01022",
+        "android_client_info": {
+          "package_name": "br.com.theodoro.djikstra_puc_lucia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005238569095-9cvsflgek221jtdsv8c5ncg5n4jofl25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN7tvpdfZsVG5Eh_naLQaME4rD7ptu87c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005238569095-9cvsflgek221jtdsv8c5ncg5n4jofl25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005238569095:android:38a9e2758ce36b06f01022",
+        "android_client_info": {
+          "package_name": "com.example.populatefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005238569095-9cvsflgek221jtdsv8c5ncg5n4jofl25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN7tvpdfZsVG5Eh_naLQaME4rD7ptu87c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005238569095-9cvsflgek221jtdsv8c5ncg5n4jofl25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
